@@ -19,7 +19,6 @@ This project demonstrates frontend-backend integration, database connectivity, u
 
 ### 🍔 Interactive Menu
 - 15 Delicious Food Items
-- Coffee, Bistro & Dessert Categories
 - Search Functionality
 - Add to Cart Feature
 
@@ -185,7 +184,7 @@ This project helped in understanding:
 ## 👨‍💻 Developer
 
 **Kishan Kishor**  
-Entrepreneur • Musician • Web Developer
+Developer • Musician • Writer
 
 REALKK CAFE was developed as a full-stack restaurant management and food ordering website project to demonstrate modern web development concepts using HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB.
 
@@ -194,3 +193,7 @@ REALKK CAFE was developed as a full-stack restaurant management and food orderin
 ## 📜 License
 
 This project is developed for educational and learning purposes only.
+
+Copyright © 2026 Kishan Kishor
+
+This project is created for educational and portfolio purposes. Unauthorized commercial use, redistribution, or reproduction of this project without permission is prohibited.
