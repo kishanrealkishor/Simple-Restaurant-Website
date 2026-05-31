@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REALKK CAFE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+<header>
+
+    <div class="logo" onclick="switchPage('home')">
+        REALKK <span>CAFE</span>
+    </div>
+
+    <div class="search-bar-container">
+
+        <input
+        type="text"
+        id="menu-search"
+        placeholder="Search menu..."
+        oninput="handleSearch()">
+
+    </div>
+
+    <nav>
+
+        <ul id="nav-links">
+
+            <li>
+                <a href="#"
+                class="nav-link active-link"
+                onclick="switchPage('home')">
+                Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#"
+                class="nav-link"
+                onclick="switchPage('menu')">
+                Menu
+                </a>
+            </li>
+
+            <li>
+                <a href="#"
+                class="nav-link"
+                onclick="switchPage('about')">
+                About
+                </a>
+            </li>
+
+            <li>
+                <a href="#"
+                class="nav-link"
+                onclick="switchPage('contact')">
+                Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="#"
+                class="nav-link"
+                id="auth-nav-btn"
+                onclick="switchPage('auth')">
+                Sign In
+                </a>
+            </li>
+
+            <li>
+                <a href="#"
+                class="cart-btn"
+                onclick="switchPage('cart')">
+
+                Cart (
+                <span id="cart-count">0</span>
+                )
+
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- MAIN -->
+<main>
+
+
+<!-- HOME -->
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Sip Bold. Eat Real.
+            </h1>
+
+            <p>
+                Premium coffee and delicious meals.
+            </p>
+
+            <button class="btn btn-large"
+            onclick="switchPage('menu')">
+
+            Explore Menu
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MENU -->
+<section id="menu" class="page">
+
+    <div class="menu-header-flex">
+
+        <h2 class="section-title">
+            Our Menu
+        </h2>
+
+        <div class="filter-tabs">
+
+            <button class="tab-btn active"
+            onclick="filterCategory('All')">
+            All
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="menu-grid"
+    id="menu-items-container">
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="page">
+
+    <div class="about-simple">
+
+        <div class="about-img">
+
+            <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200"
+            alt="Cafe">
+
+        </div>
+
+        <div class="about-info">
+
+            <span class="about-tag">
+                About Us
+            </span>
+
+            <h2>
+                REALKK CAFE
+            </h2>
+
+            <p>
+
+                REALKK Cafe was founded by Kishan Kishor, an Indian entrepreneur and musician, in the
+                heart of New York City. Established with a vision of blending great food, creativity, and
+                culture, the cafe offers a welcoming atmosphere, delicious meals, and exceptional service,
+                making it a favorite destination for locals and visitors seeking a unique dining experience.
+
+
+            </p>
+
+            <div class="about-icons">
+
+                <div>☕ Coffee</div>
+                <div>🍔 Food</div>
+                <div>🍰 Dessert</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page">
+
+    <h2 class="section-title">
+        Contact Us
+    </h2>
+
+    <div class="contact-wrapper">
+
+        <div class="contact-info-panel">
+
+            <h3>
+                REALKK CAFE
+            </h3>
+
+            <p class="contact-subtext">
+                Contact for reservations and support.
+            </p>
+
+        </div>
+
+
+        <div class="form-container-split">
+
+            <h3>
+                Send Message
+            </h3>
+
+            <form
+            onsubmit="event.preventDefault(); alert('Message Sent');">
+
+                <div class="form-group">
+
+                    <label>
+                        Name
+                    </label>
+
+                    <input type="text" required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input type="email" required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Message
+                    </label>
+
+                    <textarea rows="4" required></textarea>
+
+                </div>
+
+                <button type="submit"
+                class="btn btn-full">
+
+                Submit
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AUTH -->
+<section id="auth" class="page">
+
+
+<!-- SIGN IN -->
+<div id="signin-box"
+class="auth-box active-auth-box">
+
+    <h2 class="auth-title">
+        Sign In
+    </h2>
+
+    <form onsubmit="loginSubmit(event)">
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input type="email" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Password</label>
+
+            <input type="password" required>
+
+        </div>
+
+        <button type="submit"
+        class="btn btn-full">
+
+        Login
+
+        </button>
+
+    </form>
+
+    <p class="auth-footer-text">
+
+        Don't have an account?
+
+        <span onclick="toggleAuthView('signup')">
+            Sign Up
+        </span>
+
+    </p>
+
+</div>
+
+
+<!-- SIGN UP -->
+<div id="signup-box"
+class="auth-box">
+
+    <h2 class="auth-title">
+        Create Account
+    </h2>
+
+    <form onsubmit="signupSubmit(event)">
+
+        <div class="form-group">
+
+            <label>Full Name</label>
+
+            <input type="text" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input type="email" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Password</label>
+
+            <input type="password" required>
+
+        </div>
+
+        <button type="submit"
+        class="btn btn-full">
+
+        Register
+
+        </button>
+
+    </form>
+
+    <p class="auth-footer-text">
+
+        Already have account?
+
+        <span onclick="toggleAuthView('signin')">
+            Sign In
+        </span>
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- CART -->
+<section id="cart" class="page">
+
+    <h2 class="section-title">
+        Your Cart
+    </h2>
+
+    <div class="cart-container">
+
+        <div id="cart-items">
+
+        </div>
+
+        <div class="cart-summary">
+
+            <h3>
+
+                Total :
+                $
+                <span id="cart-total-price">
+                    0
+                </span>
+
+            </h3>
+
+            <button
+            class="btn btn-full btn-large"
+            onclick="switchPage('checkout')">
+
+            Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CHECKOUT -->
+<section id="checkout" class="page">
+
+    <h2 class="section-title">
+        Secure Checkout
+    </h2>
+
+    <div class="checkout-wrapper">
+
+        <form onsubmit="processOrderPlacement(event)">
+
+            <!-- CUSTOMER DETAILS -->
+            <div class="checkout-section-block">
+
+                <h3>Billing Details</h3>
+
+                <div class="form-group">
+
+    <label>Full Name</label>
+
+    <input
+    type="text"
+    id="checkout-name"
+    placeholder="Enter Full Name"
+    required>
+
+</div>
+
+<div class="form-group">
+
+    <label>Email Address</label>
+
+    <input
+    type="email"
+    id="checkout-email"
+    placeholder="Enter Email"
+    required>
+
+</div>
+
+<div class="form-group">
+
+    <label>Phone Number</label>
+
+    <input
+    type="text"
+    id="checkout-phone"
+    placeholder="Enter Phone Number"
+    required>
+
+</div>
+
+<div class="form-group">
+
+    <label>Delivery Address</label>
+
+    <textarea
+    rows="3"
+    id="checkout-address"
+    placeholder="Enter Delivery Address"
+    required></textarea>
+
+</div>
+
+            </div>
+
+
+            <!-- PAYMENT METHODS -->
+            <div class="checkout-section-block">
+
+                <h3>Select Payment Method</h3>
+
+                <div class="payment-methods-grid">
+
+                    <!-- CARD -->
+                    <label class="pay-method-card active-pay">
+
+                        <input
+                        type="radio"
+                        name="payment_selector"
+                        value="card"
+                        checked
+                        onchange="togglePaymentForm('card')">
+
+                        💳 Credit / Debit Card
+
+                    </label>
+
+
+                    <!-- PAYPAL -->
+                    <label class="pay-method-card">
+
+                        <input
+                        type="radio"
+                        name="payment_selector"
+                        value="paypal"
+                        onchange="togglePaymentForm('paypal')">
+
+                        🅿️ PayPal
+
+                    </label>
+
+
+                    <!-- GOOGLE PAY -->
+                    <label class="pay-method-card">
+
+                        <input
+                        type="radio"
+                        name="payment_selector"
+                        value="gpay"
+                        onchange="togglePaymentForm('gpay')">
+
+                        📱 Google Pay
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD DETAILS -->
+            <div
+            id="card-input-fields"
+            class="checkout-section-block active-fields-block">
+
+                <h3>Card Information</h3>
+
+                <div class="form-group">
+                    <label>Card Holder Name</label>
+                    <input type="text" id="card-name">
+                </div>
+
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input
+                    type="text"
+                    id="card-number"
+                    placeholder="1234 5678 9012 3456">
+                </div>
+
+                <div style="display:flex; gap:1rem;">
+
+                    <div class="form-group" style="flex:1;">
+                        <label>Expiry</label>
+                        <input
+                        type="text"
+                        id="card-expiry"
+                        placeholder="MM/YY">
+                    </div>
+
+                    <div class="form-group" style="flex:1;">
+                        <label>CVV</label>
+                        <input
+                        type="password"
+                        id="card-cvv"
+                        placeholder="123">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WALLET MESSAGE -->
+            <div
+            id="digital-wallet-placeholder"
+            class="checkout-section-block">
+
+                <h3>Digital Wallet</h3>
+
+                <p style="color:#64748b;">
+
+                    You will be redirected securely
+                    to complete payment authentication.
+
+                </p>
+
+            </div>
+
+
+            <!-- TOTAL -->
+            <div class="checkout-section-block">
+
+                <h3>
+
+                    Total Amount :
+                    $
+                    <span id="checkout-total-price">
+                        0
+                    </span>
+
+                </h3>
+
+            </div>
+
+
+            <!-- BUTTON -->
+            <button
+            type="submit"
+            class="btn btn-full btn-large">
+
+            Pay & Place Order
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
